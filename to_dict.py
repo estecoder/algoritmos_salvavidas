@@ -1,3 +1,4 @@
+from typing import List, Dict
 #convertir una lista de listas a lista de diccionarios, cambia orden de datos
 def list_to_dict(lista: list, headers: list):
     if len(lista) > 1:
@@ -50,3 +51,21 @@ def list_to_dict(lista: list, headers: list):
             j += 1
         
         return lista
+
+def find_keys(in_dict: dict, val: int):
+    keys = list(in_dict.keys())
+    values = list(in_dict.values())
+    return keys[values.index(val)]
+
+#IMPLEMENTAR ESTO CON RECURSIVIDAD
+def limpiar_acentos(text: List[str]):
+    acentos = {'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U'}
+    for palabra in text:
+        for acen in acentos:
+            if acen in palabra:
+                i = text.index(palabra)
+                palabra = palabra.replace(acen, acentos[acen])
+                text[i]=palabra
+    return text
+
+
